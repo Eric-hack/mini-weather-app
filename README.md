@@ -16,6 +16,7 @@ The app allows users to search for any city and get details like **temperature, 
 ---
 
 ## 📸 Demo Screenshot
+Check it out (https://eric-hack.github.io/mini-weather-app/)
 [alt text](Screenshot_weather_test.jpg)  
 
 
