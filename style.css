@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+    transition: background 0.5s ease;
+}
+
+body.sunny {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+body.cloudy {
+    background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+}
+
+body.rainy {
+    background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+}
+
+body.clear {
+    background: linear-gradient(135deg, #FAD961 0%, #F76B1C 100%);
+}
+
+body.snow {
+    background: linear-gradient(135deg, #e6e9f0 0%, #eef1f5 100%);
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    padding: 40px 35px;
+    width: 100%;
+    max-width: 450px;
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+#cityInput {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#cityInput:focus {
+    border-color: #667eea;
+}
+
+#searchBtn {
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#searchBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+#searchBtn:active {
+    transform: translateY(0);
+}
+
+.weather-result {
+    display: none;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+.weather-result.show {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.date-time {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.location {
+    font-size: 32px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.weather-icon {
+    width: 120px;
+    height: 120px;
+    margin: 20px auto;
+}
+
+.temperature {
+    font-size: 56px;
+    font-weight: 700;
+    color: #333;
+    margin: 20px 0;
+}
+
+.temperature span {
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.description {
+    font-size: 24px;
+    color: #666;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+}
+
+.details {
+    display: flex;
+    justify-content: space-around;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.detail-item {
+    text-align: center;
+}
+
+.detail-label {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.detail-value {
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.error-message {
+    display: none;
+    background: #ff6b6b;
+    color: white;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 20px;
+    animation: shake 0.5s ease;
+}
+
+.error-message.show {
+    display: block;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.loading {
+    display: none;
+    text-align: center;
+    color: #667eea;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.loading.show {
+    display: block;
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 30px 25px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .location {
+        font-size: 26px;
+    }
+
+    .temperature {
+        font-size: 48px;
+    }
+
+    .description {
+        font-size: 20px;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    #searchBtn {
+        width: 100%;
+    }
+}
